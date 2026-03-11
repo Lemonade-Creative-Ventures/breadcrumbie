@@ -121,3 +121,27 @@ The app comes with 6 pre-seeded trails:
 - 🎵 Music (invite-only, 8 members)
 - 🍕 Food & Restaurants (public, 15 members)
 - 📰 News (invite-only, 12 members)
+
+## Deployment to GitHub Pages
+
+The repository includes a GitHub Actions workflow (`.github/workflows/deploy-pages.yml`) that automatically builds and deploys the Expo web app to GitHub Pages.
+
+### Setup Instructions
+
+1. **Enable GitHub Pages** in your repository settings:
+   - Go to **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions**
+
+2. **Push to the `main` branch** to trigger the deployment workflow
+
+3. **Access your deployed app** at: `https://<username>.github.io/<repository-name>/`
+
+### Important Notes
+
+- **Backend API**: The deployed web app will run in "demo mode" with mock data since GitHub Pages only hosts static files. To use the full backend API:
+  - Deploy the backend separately (e.g., on Heroku, Railway, Render, or Vercel)
+  - Update the `API_BASE` constant in `app/store/AppContext.tsx` to point to your deployed backend URL
+  
+- **Manual Deployment**: You can also trigger the workflow manually from the **Actions** tab in your GitHub repository
+
+- **Build Output**: The workflow exports the Expo web app to a static bundle in the `app/dist/` directory
