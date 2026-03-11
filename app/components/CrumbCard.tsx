@@ -66,7 +66,7 @@ export default function CrumbCard({ crumb, showTrailBadge }: Props) {
         </Pressable>
       ) : crumb.savedByCount > 1 ? (
         <View style={styles.savedBadgeNoThumb}>
-          <Text style={styles.savedBadgeText}>🔁 Saved by {crumb.savedByCount} people</Text>
+          <Text style={styles.savedBadgeNoThumbText}>🔁 Saved by {crumb.savedByCount} people</Text>
         </View>
       ) : null}
 
@@ -176,6 +176,11 @@ const styles = StyleSheet.create({
   },
   savedBadgeText: {
     color: Colors.white,
+    fontSize: 11,
+    fontWeight: '600',
+  },
+  savedBadgeNoThumbText: {
+    color: Colors.badgeText,
     fontSize: 11,
     fontWeight: '600',
   },

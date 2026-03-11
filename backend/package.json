@@ -2,6 +2,9 @@
   "name": "breadcrumbie-backend",
   "version": "1.0.0",
   "description": "Breadcrumbie API server",
+  "engines": {
+    "node": ">=20.18.1"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"

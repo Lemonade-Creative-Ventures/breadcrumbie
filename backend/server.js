@@ -45,7 +45,7 @@ let trails = [
   { id: 't2', name: 'Travel Ideas',      emoji: '✈️', isPublic: true,  memberCount: 18, createdAt: ago(5 * 86400000) },
   { id: 't3', name: 'Memes',             emoji: '😂', isPublic: true,  memberCount: 31, createdAt: ago(3 * 86400000) },
   { id: 't4', name: 'Music',             emoji: '🎵', isPublic: false, memberCount: 8,  createdAt: ago(10 * 86400000) },
-  { id: 't5', name: 'Food & Restaurants',emoji: '🍕', isPublic: true,  memberCount: 15, createdAt: ago(2 * 86400000) },
+  { id: 't5', name: 'Food & Restaurants', emoji: '🍕', isPublic: true,  memberCount: 15, createdAt: ago(2 * 86400000) },
   { id: 't6', name: 'News',              emoji: '📰', isPublic: false, memberCount: 12, createdAt: ago(86400000) },
 ];
 

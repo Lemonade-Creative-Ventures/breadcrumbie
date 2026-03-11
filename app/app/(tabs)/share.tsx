@@ -76,7 +76,11 @@ export default function ShareScreen() {
         { text: 'Done', style: 'cancel' },
       ]);
     } catch {
-      Alert.alert('Error', 'Could not drop crumb. Try again.');
+      Alert.alert(
+        'Could not drop crumb',
+        'Check your connection and try again. Your crumb was not saved.',
+        [{ text: 'OK' }]
+      );
     } finally {
       setSubmitting(false);
     }

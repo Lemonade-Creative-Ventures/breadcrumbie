@@ -53,6 +53,10 @@ breadcrumbie/
         └── url.ts
 ```
 
+## Requirements
+
+- **Node.js** ≥ 20.18.1 (required by the cheerio dependency for Open Graph metadata fetching)
+
 ## Getting Started
 
 ### 1. Start the Backend

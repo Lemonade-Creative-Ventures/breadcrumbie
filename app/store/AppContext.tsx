@@ -6,6 +6,7 @@ import React, {
   ReactNode,
 } from 'react';
 import { Trail, Crumb, BreadBoxItem, UrlMetadata, AppNotification } from '../types';
+import { getDomain } from '../utils/url';
 
 const API_BASE = 'http://localhost:3001/api';
 const API_TIMEOUT_MS = 6000;
@@ -349,8 +350,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         title: data.title ?? data.url,
         description: data.description ?? '',
         thumbnail: data.thumbnail ?? `https://picsum.photos/seed/${Date.now()}/600/400`,
-        domain: data.url.replace(/^https?:\/\/(www\.)?/, '').split('/')[0],
-        savedByCount: 0,
+        domain: getDomain(data.url),
         reactions: { '❤️': 0, '😂': 0, '🔥': 0 },
         commentCount: 0,
         createdAt: new Date().toISOString(),
@@ -374,7 +374,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         title: data.title ?? data.url,
         description: data.description ?? '',
         thumbnail: data.thumbnail ?? null,
-        domain: data.url.replace(/^https?:\/\/(www\.)?/, '').split('/')[0],
+        domain: getDomain(data.url),
         savedAt: new Date().toISOString(),
       };
       dispatch({ type: 'ADD_BREADBOX_ITEM', payload: item });
@@ -403,7 +403,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       const data = await apiFetch(`/metadata?url=${encodeURIComponent(url)}`);
       return data as UrlMetadata;
     } catch {
-      const domain = url.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+      const domain = getDomain(url);
       return { url, title: url, description: '', thumbnail: null, domain, favicon: null };
     }
   }, []);
