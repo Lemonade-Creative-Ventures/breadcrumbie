@@ -1,0 +1,25 @@
+const Colors = {
+  primary: '#F5A623',
+  primaryLight: '#FDF0D5',
+  primaryDark: '#D4891A',
+  background: '#FAFAF8',
+  card: '#FFFFFF',
+  text: '#1A1A1A',
+  textSecondary: '#4A4A4A',
+  muted: '#8E8E8E',
+  border: '#EBEBEB',
+  borderLight: '#F0F0EE',
+  success: '#34C759',
+  error: '#FF3B30',
+  reactionBg: '#F5F5F3',
+  reactionActiveBg: '#FEF3D7',
+  badgeBg: '#FFF3D6',
+  badgeText: '#C47D0E',
+  inviteOnly: '#E8F4FD',
+  inviteOnlyText: '#2C7DB0',
+  overlay: 'rgba(0,0,0,0.4)',
+  white: '#FFFFFF',
+  black: '#000000',
+};
+
+export default Colors;
