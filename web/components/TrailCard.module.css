@@ -1,44 +1,47 @@
 .trailCard {
-  transition: transform 0.2s ease;
+  transition: all var(--transition-base);
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .title {
   font-size: 18px;
-  font-weight: 600;
-  color: #1f2937;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
 }
 
 .badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: var(--space-sm);
 }
 
 .badge {
   display: inline-block;
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
   font-size: 12px;
-  font-weight: 500;
-  background-color: #dbeafe;
-  color: #1e40af;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--color-primary-lighter) 0%, var(--color-primary-light) 100%);
+  color: var(--color-primary-dark);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .badge.private {
-  background-color: #fef3c7;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   color: #92400e;
 }
 
 .badge.anonymous {
-  background-color: #e5e7eb;
-  color: #374151;
+  background: linear-gradient(135deg, var(--color-bg-tertiary) 0%, var(--color-border-light) 100%);
+  color: var(--color-text-secondary);
 }
 
 .meta {
@@ -46,13 +49,15 @@
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  color: #6b7280;
+  color: var(--color-text-secondary);
 }
 
 .owner {
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--color-text-primary);
 }
 
 .count {
-  color: #9ca3af;
+  color: var(--color-text-tertiary);
+  font-weight: 500;
 }
