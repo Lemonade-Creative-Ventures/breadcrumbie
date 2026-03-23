@@ -1,0 +1,63 @@
+.crumbCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.time {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.link {
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.urlContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.domain {
+  font-size: 14px;
+  color: #2563eb;
+  font-weight: 500;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.note {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0;
+}

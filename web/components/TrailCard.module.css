@@ -1,0 +1,58 @@
+.trailCard {
+  transition: transform 0.2s ease;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.badge.private {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge.anonymous {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.owner {
+  font-weight: 500;
+}
+
+.count {
+  color: #9ca3af;
+}
