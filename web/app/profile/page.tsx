@@ -82,7 +82,7 @@ export default function ProfilePage() {
               </div>
             ) : (
               <Card>
-                <p className={styles.emptyText}>You haven't created any trails yet.</p>
+                <p className={styles.emptyText}>You haven&apos;t created any trails yet.</p>
               </Card>
             )}
           </section>

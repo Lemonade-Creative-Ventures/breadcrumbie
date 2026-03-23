@@ -47,7 +47,7 @@ export default function JoinTrailPage() {
               <div className={styles.hint}>
                 <p>
                   💡 <strong>Tip:</strong> The trail owner will share the invite code with you.
-                  For demo purposes, try using "RECIPE2024".
+                  For demo purposes, try using &quot;RECIPE2024&quot;.
                 </p>
               </div>
 
