@@ -1,15 +1,17 @@
 .nav {
-  background-color: white;
-  border-bottom: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border-light);
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: var(--shadow-sm);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 20px;
+  padding: var(--space-md) var(--space-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,35 +20,60 @@
 .logo {
   font-size: 20px;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--color-text-primary);
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  letter-spacing: -0.02em;
 }
 
 .logo:hover {
-  opacity: 0.7;
+  color: var(--color-primary);
+  transform: scale(1.02);
 }
 
 .links {
   display: flex;
-  gap: 24px;
+  gap: var(--space-lg);
 }
 
 .link {
   font-size: 16px;
-  font-weight: 500;
-  color: #6b7280;
+  font-weight: 600;
+  color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all var(--transition-fast);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  position: relative;
 }
 
 .link:hover {
-  color: #2563eb;
+  color: var(--color-primary);
+  background: var(--color-bg-tertiary);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: var(--color-primary);
+  transition: transform var(--transition-base);
+}
+
+.link:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 @media (max-width: 640px) {
   .container {
-    padding: 12px 16px;
+    padding: var(--space-sm) var(--space-md);
   }
 
   .logo {
@@ -54,10 +81,11 @@
   }
 
   .links {
-    gap: 16px;
+    gap: var(--space-sm);
   }
 
   .link {
     font-size: 14px;
+    padding: var(--space-xs) var(--space-sm);
   }
 }

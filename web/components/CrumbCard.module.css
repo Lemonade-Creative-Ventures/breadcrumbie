@@ -1,7 +1,7 @@
 .crumbCard {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-md);
 }
 
 .header {
@@ -12,38 +12,47 @@
 
 .userName {
   font-size: 14px;
-  font-weight: 600;
-  color: #374151;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
 }
 
 .time {
   font-size: 13px;
-  color: #9ca3af;
+  color: var(--color-text-tertiary);
+  font-weight: 500;
 }
 
 .link {
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .link:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .urlContainer {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  background-color: #f9fafb;
-  border-radius: 6px;
-  border: 1px solid #e5e7eb;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border-light);
+  transition: all var(--transition-base);
+}
+
+.link:hover .urlContainer {
+  border-color: var(--color-primary-light);
+  background: linear-gradient(135deg, var(--color-primary-lighter) 0%, var(--color-bg-secondary) 100%);
+  transform: translateX(4px);
 }
 
 .domain {
   font-size: 14px;
-  color: #2563eb;
-  font-weight: 500;
+  color: var(--color-primary);
+  font-weight: 600;
   flex: 1;
   white-space: nowrap;
   overflow: hidden;
@@ -51,13 +60,18 @@
 }
 
 .icon {
-  color: #6b7280;
+  color: var(--color-text-secondary);
   flex-shrink: 0;
+  transition: transform var(--transition-base);
+}
+
+.link:hover .icon {
+  transform: translateX(2px);
 }
 
 .note {
   font-size: 15px;
-  color: #4b5563;
-  line-height: 1.5;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
   margin: 0;
 }

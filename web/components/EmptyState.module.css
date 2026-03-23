@@ -4,29 +4,42 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 60px 20px;
-  gap: 16px;
+  padding: var(--space-3xl) var(--space-lg);
+  gap: var(--space-lg);
 }
 
 .icon {
-  font-size: 64px;
-  margin-bottom: 8px;
+  font-size: 72px;
+  margin-bottom: var(--space-sm);
+  opacity: 0.8;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1f2937;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .description {
   font-size: 16px;
-  color: #6b7280;
-  max-width: 400px;
+  color: var(--color-text-secondary);
+  max-width: 450px;
   margin: 0;
+  line-height: 1.6;
 }
 
 .action {
-  margin-top: 8px;
+  margin-top: var(--space-md);
 }
