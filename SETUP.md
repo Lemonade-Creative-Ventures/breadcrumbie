@@ -1,12 +1,40 @@
 # Breadcrumbie — Setup Guide
 
-This guide explains how to get the full Breadcrumbie project running from scratch. It is written for beginners who may not be familiar with all the tools involved.
+This guide explains how to get the Breadcrumbie project running from scratch. It is written for beginners who may not be familiar with all the tools involved.
 
 ---
 
-## What you will need
+## Quick Start (Web App with Mock Data)
 
-Before you start, install the following on your Mac:
+**Want to run the web app locally right now?** Follow these steps:
+
+1. **Install Node.js** (v18 or higher) from [nodejs.org](https://nodejs.org)
+
+2. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Lemonade-Creative-Ventures/breadcrumbie.git
+   cd breadcrumbie/web
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser** and go to [http://localhost:3000](http://localhost:3000)
+
+That's it! The web app is now running with mock data. No database or authentication setup required yet.
+
+---
+
+## What you will need for full setup
+
+To set up the complete system (including database and iOS app), install the following:
 
 | Tool | Why you need it | Install |
 |------|----------------|---------|
@@ -19,7 +47,7 @@ Before you start, install the following on your Mac:
 
 ---
 
-## Part 1 — Set up Supabase
+## Part 1 — Set up Supabase (Optional - for production)
 
 1. Go to [supabase.com](https://supabase.com) and create a free account.
 2. Create a new project. Give it a name like `breadcrumbie`.
@@ -61,7 +89,13 @@ create table follows (
 
 ---
 
-## Part 2 — Run the Next.js web app
+## Part 2 — Run the Next.js web app (with database - optional)
+
+**Note:** The web app currently runs with mock data only. Database integration is not yet implemented.
+
+For the current version with mock data, see the Quick Start section above.
+
+Once Supabase is configured (future step), you will:
 
 1. Open a terminal and clone the repository:
 
@@ -143,9 +177,11 @@ enum Config {
 
 | Command | What it does |
 |---------|-------------|
+| `npm install` | Install all dependencies (run this first) |
 | `npm run dev` | Start the Next.js dev server at localhost:3000 |
 | `npm run build` | Build the Next.js app for production |
 | `npm start` | Run the production build locally |
+| `npm run lint` | Check code for style issues |
 
 ---
 
