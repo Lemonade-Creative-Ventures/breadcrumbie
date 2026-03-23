@@ -1,5 +1,6 @@
 'use client'
 
+import { use } from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Navigation from '@/components/Navigation'
@@ -9,8 +10,8 @@ import EmptyState from '@/components/EmptyState'
 import { getTrailById, getCrumbsByTrailId } from '@/lib/mockData'
 import styles from './trail.module.css'
 
-export default function TrailPage({ params }: { params: { id: string } }) {
-  const { id } = params
+export default function TrailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params)
   const trail = getTrailById(id)
   
   if (!trail) {
