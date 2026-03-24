@@ -13,8 +13,9 @@
   margin: 0 auto;
   padding: var(--space-md) var(--space-lg);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .logo {
@@ -37,6 +38,8 @@
 .links {
   display: flex;
   gap: var(--space-lg);
+  position: absolute;
+  right: var(--space-lg);
 }
 
 .link {
@@ -71,9 +74,10 @@
   transform: translateX(-50%) scaleX(1);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .container {
     padding: var(--space-sm) var(--space-md);
+    justify-content: center;
   }
 
   .logo {
@@ -81,11 +85,6 @@
   }
 
   .links {
-    gap: var(--space-sm);
-  }
-
-  .link {
-    font-size: 14px;
-    padding: var(--space-xs) var(--space-sm);
+    display: none;
   }
 }
