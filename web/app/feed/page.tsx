@@ -19,7 +19,12 @@ export default function FeedPage() {
 
   // Helper to check if URL is Instagram
   const isInstagramUrl = (url: string) => {
-    return url.includes('instagram.com')
+    try {
+      const urlObj = new URL(url)
+      return urlObj.hostname === 'www.instagram.com' || urlObj.hostname === 'instagram.com'
+    } catch {
+      return false
+    }
   }
 
   return (
