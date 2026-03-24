@@ -2,34 +2,69 @@
 
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
-import CrumbCard from '@/components/CrumbCard'
+import BottomNav from '@/components/BottomNav'
+import InstagramEmbed from '@/components/InstagramEmbed'
+import TrailStory from '@/components/TrailStory'
 import Button from '@/components/Button'
 import EmptyState from '@/components/EmptyState'
-import { getRecentCrumbs } from '@/lib/mockData'
+import { getRecentCrumbs, mockTrails, getTrailById } from '@/lib/mockData'
 import styles from './feed.module.css'
 
 export default function FeedPage() {
   const crumbs = getRecentCrumbs()
+  // Get the trails that have Instagram crumbs
+  const featuredTrails = mockTrails.filter(trail => 
+    ['5', '6', '7'].includes(trail.id)
+  )
+
+  // Helper to check if URL is Instagram
+  const isInstagramUrl = (url: string) => {
+    try {
+      const urlObj = new URL(url)
+      return urlObj.hostname === 'www.instagram.com' || urlObj.hostname === 'instagram.com'
+    } catch {
+      return false
+    }
+  }
 
   return (
     <>
       <Navigation />
       <div className={styles.container}>
+        {/* Trails section - like Instagram stories */}
+        {featuredTrails.length > 0 && (
+          <div className={styles.trailsSection}>
+            <div className={styles.trailsScroll}>
+              {featuredTrails.map((trail) => (
+                <TrailStory key={trail.id} trail={trail} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Feed header */}
         <div className={styles.header}>
           <div>
-            <h1 className={styles.title}>Your Feed</h1>
-            <p className={styles.subtitle}>Recent crumbs from your trails</p>
+            <h1 className={styles.title}>Trail Mix</h1>
+            <p className={styles.subtitle}>Discover crumbs from your trails</p>
           </div>
-          <Link href="/trail/create">
-            <Button>Drop a crumb</Button>
-          </Link>
         </div>
 
+        {/* Feed content */}
         {crumbs.length > 0 ? (
           <div className={styles.feed}>
-            {crumbs.map((crumb) => (
-              <CrumbCard key={crumb.id} crumb={crumb} />
-            ))}
+            {crumbs
+              .filter((crumb) => isInstagramUrl(crumb.url))
+              .map((crumb) => {
+                const trail = getTrailById(crumb.trailId)
+                return (
+                  <InstagramEmbed 
+                    key={crumb.id} 
+                    url={crumb.url}
+                    trailName={trail?.name}
+                  />
+                )
+              })}
           </div>
         ) : (
           <EmptyState
@@ -44,6 +79,7 @@ export default function FeedPage() {
           />
         )}
       </div>
+      <BottomNav />
     </>
   )
 }
