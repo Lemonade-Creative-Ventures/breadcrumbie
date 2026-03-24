@@ -54,10 +54,11 @@
 .feed {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--space-lg);
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
+  padding-bottom: var(--space-xl);
 }
 
 @media (min-width: 768px) {
