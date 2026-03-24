@@ -29,36 +29,38 @@
 
 .embedWrapper {
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-primary);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--color-bg-primary);
-  padding: 0;
+}
+
+.embedIframe {
+  width: 100%;
+  max-width: 640px;
+  height: 700px;
+  border: none;
   margin: 0;
-}
-
-/* Style the Instagram blockquote for immersive display */
-.embedWrapper :global(blockquote.instagram-media) {
-  margin: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  border: none !important;
-  max-width: 100% !important;
-  width: 100% !important;
-  min-width: 100% !important;
-  padding: 0 !important;
-}
-
-/* Style the Instagram iframe when it loads */
-.embedWrapper :global(iframe) {
-  width: 100% !important;
-  max-width: 100% !important;
-  border: none !important;
-  margin: 0 !important;
+  padding: 0;
+  display: block;
+  background: transparent;
 }
 
 @media (max-width: 640px) {
   .trailLabel {
     padding: var(--space-sm) var(--space-md);
+  }
+  
+  .embedIframe {
+    height: 800px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .embedIframe {
+    height: 750px;
   }
 }
