@@ -10,23 +10,19 @@ interface InstagramEmbedProps {
 
 export default function InstagramEmbed({ url, trailName }: InstagramEmbedProps) {
   useEffect(() => {
-    // Load Instagram embed script
-    const script = document.createElement('script')
-    script.src = 'https://www.instagram.com/embed.js'
-    script.async = true
-    document.body.appendChild(script)
+    // Load Instagram embed script only if not already loaded
+    const existingScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]')
+    
+    if (!existingScript) {
+      const script = document.createElement('script')
+      script.src = 'https://www.instagram.com/embed.js'
+      script.async = true
+      document.body.appendChild(script)
+    }
 
     // Process embeds after script loads
     if (window.instgrm) {
       window.instgrm.Embeds.process()
-    }
-
-    return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]')
-      if (existingScript) {
-        document.body.removeChild(existingScript)
-      }
     }
   }, [url])
 

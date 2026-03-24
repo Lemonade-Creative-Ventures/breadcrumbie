@@ -48,9 +48,10 @@ export default function FeedPage() {
         {/* Feed content */}
         {crumbs.length > 0 ? (
           <div className={styles.feed}>
-            {crumbs.map((crumb) => {
-              const trail = getTrailById(crumb.trailId)
-              if (isInstagramUrl(crumb.url)) {
+            {crumbs
+              .filter((crumb) => isInstagramUrl(crumb.url))
+              .map((crumb) => {
+                const trail = getTrailById(crumb.trailId)
                 return (
                   <InstagramEmbed 
                     key={crumb.id} 
@@ -58,9 +59,7 @@ export default function FeedPage() {
                     trailName={trail?.name}
                   />
                 )
-              }
-              return null
-            })}
+              })}
           </div>
         ) : (
           <EmptyState
